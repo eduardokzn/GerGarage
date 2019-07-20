@@ -2,7 +2,7 @@
 
 class DBConnection extends SQLite3 {
   function __construct() {
-     $this->open('./db/ShopStore');
+     $this->open('./db/db.db');
   }
 }
 
@@ -40,8 +40,9 @@ else{
         $userFn = $db->escapeString(htmlspecialchars($_REQUEST['userFn']));
         $userLn = $db->escapeString(htmlspecialchars($_REQUEST['userLn']));
         $mobile = $db->escapeString(htmlspecialchars($_REQUEST['mobile']));
-        $password1 = $db->escapeString(htmlspecialchars($_REQUEST[hash('ekzn' +'password1')]));
+        $address = $db->escapeString(htmlspecialchars($_REQUEST['address']));
         $email = $db->escapeString(htmlspecialchars($_REQUEST['email']));
+        $password1 = $db->escapeString(htmlspecialchars($_REQUEST[hash('ekzn' +'password1')]));
     }
 }
 if(!$db) 
@@ -79,8 +80,22 @@ if(!$db)
     
      // AUTOINCREMENT is on the ID column
      
-    $stm = "INSERT INTO User(user_name, user_company, user_password_hash, user_email ) 
-                    VALUES ('$user', '$company', '$password1', '$email')"; 
+    $stm = "INSERT INTO 
+            user(
+                nameF_usr,
+                nameL_usr,
+                mobileNumber_usr,
+                address_usr,
+                pass_usr, 
+                email_usr
+                ) 
+            VALUES (
+                '$userFn', 
+                '$userLn', 
+                '$mobile', 
+                '$address',
+                '$password1', 
+                '$email')"; 
      
    $return = $db->exec($stm);
    if(!$return) 

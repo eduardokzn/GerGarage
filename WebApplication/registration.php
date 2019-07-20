@@ -28,29 +28,18 @@
         
 <!-- MAIN CONTENT ------------------------------------------>
 <?php
-    $userFn = $userLn = $mobile = $email = $password1 = $password2 = "";
+    $userFn = $userLn =$address = $mobile = $email = $password1 = $password2 = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     }
-    if (empty($_POST["email"])) {} else {
-        $email = test_input($_POST["email"]);
-      }
-      if (empty($_POST["userFn"])) {} else {
-        $userFn = test_input($_POST["userFn"]);
-      }
-      if (empty($_POST["userLn"])) {} else {
-        $userLn = test_input($_POST["userLn"]);
-      }
-    if (empty($_POST["mobile"])) {} else {
-        $mobile = test_input($_POST["mobile"]);
-      }
-    if (empty($_POST["password1"])) {} else {
-        $password1 = test_input($_POST[hash("ekzn" +"password1")]);
-      }
-    if (empty($_POST["password2"])) {} else {
-        $password2 = test_input($_POST[hash("ekzn" +"password2")]);
-      }
+    if (empty($_POST["email"])) {} else {        $email = test_input($_POST["email"]);        }
+    if (empty($_POST["userFn"])) {} else {        $userFn = test_input($_POST["userFn"]);        }
+    if (empty($_POST["userLn"])) {} else {        $userLn = test_input($_POST["userLn"]);        }
+    if (empty($_POST["address"])) {} else {        $userLn = test_input($_POST["address"]);        }
+    if (empty($_POST["mobile"])) {} else {        $mobile = test_input($_POST["mobile"]);        }
+    if (empty($_POST["password1"])) {} else {        $password1 = test_input($_POST[hash("ekzn" +"password1")]);    }
+    if (empty($_POST["password2"])) {} else {        $password2 = test_input($_POST[hash("ekzn" +"password2")]);    }
 
     function test_input($data) {
       $data = trim($data);
@@ -71,10 +60,12 @@
         <input type="email" id="email"  class="form-control" placeholder="yourself@yourprovider.ie" value="<?php echo $email;?>" required autofocus><br>
         <input type="text"  id="userFn" class="form-control" placeholder="First name" value="<?php echo $userFn;?>" required ><br>
         <input type="text"  id="userLn" class="form-control" placeholder="Surname" value="<?php echo $userLn;?>" required ><br>
+        <input type="text"  id="address" class="form-control" placeholder="Address" value="<?php echo $address;?>" required ><br>
         <input type="phone"  id="mobile" class="form-control" placeholder="mobile number" value="<?php echo $mobile;?>" required ><br>
         <input type="password" id="password1" class="form-control" placeholder="password" value="<?php echo $password1;?>"required ><br>
         <input type="password" id="password2" class="form-control" placeholder="password confirmation" value="<?php echo $password2;?>" required ><br>
-<!--                <p>Terms and conditions agreed: <input id="agreement" name="agreement" type="checkbox"></p>
+
+        <!--                <p>Terms and conditions agreed: <input id="agreement" name="agreement" type="checkbox"></p>
 -->
         <button class="btn btn-lg btn-mute btn-block btn-signin" type="submit">Register</button>
     </form>
