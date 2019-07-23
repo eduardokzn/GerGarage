@@ -19,7 +19,7 @@ defined('MY_INC_CODE') or die('Access to this file is restricted');
  * SQLite3 database
  */
 
-define("DB_DATABASE", "./db/db.db");
+define("DB_DATABASE", "./db/webdevdb");
 
 /*
  * Application specific variables

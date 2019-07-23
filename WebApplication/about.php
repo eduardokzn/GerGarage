@@ -35,51 +35,20 @@
 <!-- .................................................... -->      
 <section id="review">
       
-      <h2>About Ger's Garage</h2>
+      <h2>About</h2>
 
       <!-- ROW 1 -->
       <div class="row">
-        <div class="col-sm-12">
+      <div class="col-sm-12">
 
-            <div class="col-12 col-md-6 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Address
-                </h5>
-                <p class="mbr-text">
-                    1234 Street Name
-                    <br>Dublin, Ireland</p>
-            </div>
+          <p>This site is part of a basic introduction to web applications. The technologies of HTML, CSS, JavaScript, SQLite and PHP.</p>
+          
+          <p>The code shown here is not intended for production deployment it. It's intent is to explain the principles of the technologies. The examples evolve towards production deployable caode as the cource evolves and takes into account best practices, team development, continious build, loosly coupled components for maintainability and security issues. </p>
 
-        </div><!-- column -->
-        <div class="col-sm-12">
-            <div class="col-12 col-md-6 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contacts
-                </h5>
-                <p class="mbr-text">
-                    Email: gersgarage@email.com<br>Phone: +353 (0) 80 000 0000<br></p>
-            </div>
-        </div><!-- column -->
-        
+      </div><!-- column -->
       </div><!-- row -->
       <!-- END ROW 1 -->      
-      <br>
-      <br>
-        
-      <div class="col-sm-12">
-            <div class="col-12 col-md-6 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contact the Web Developer
-                </h5>
-                <p class="mbr-text">
-                    Name: Eduardo Kenji Zen Nakashima<br>
-                    Email: eduardo.k.z.n@gmail.com<br>
-                    Phone: +353 (0) 83 825 0470<br>
-                </p>
-            </div>
-        </div><!-- column -->
-    
-    </div>
+                      
             
 </section>
 <!-- .................................................... -->

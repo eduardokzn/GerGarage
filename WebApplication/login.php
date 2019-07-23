@@ -48,11 +48,7 @@
             </label>
         </div>
         <br><br>
-        <button class="btn btn-lg btn-mute btn-secondary btn-block btn-signin" type="submit">Sign in</button>
-        <br>
-    </form>
-    <form class="form-registerin" action="registration.php" method="POST">
-        <button class="btn btn-sm btn-mute btn-secondary btn-block btn-signin" type="submit">Register</button>
+        <button class="btn btn-lg btn-warning btn-block btn-signin" type="submit">Sign in</button><br><br>
     </form>
     <a href="showUserTable.php" class="forgot-password">
         debug: view user table 

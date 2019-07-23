@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-danger fixed-top">
 
       <a class="navbar-brand" href="home.php">
-        <img src="./img/DarkAlien.png" alt="logo" style="width:60px;">
+        <img src="img/robot.svg" alt="robot logo" style="width:60px;">
       </a>
         
       <!-- Toggler/collapsibe Button -->

@@ -33,38 +33,86 @@ header {
     
     echo '<header>';
     include (VIEW_PATH . "/public/navigation.php"); 
+    include (VIEW_PATH . "/public/bossImage.php"); 
     echo "<header>";
     
     include (APPLICATION_PATH . "/inc/db.inc.php");   
 ?>
         
 <!-- MAIN CONTENT ------------------------------------------>
-<?php
-    include (VIEW_PATH . "/public/welcome.php"); 
-?>
 <main class="margin-top-6">  
 <div class="container">
 
-        <!-- .................................................... --> 
-        <div class="row">
-            <div class="col-sm-12">
-                <?php
-                    if( $_GET != NULL && !empty($_GET['login']))
-                    {
-                        $loginStatus = $_GET['login'];
-                        if($loginStatus == 'nouser')
-                            {echo '<p class="text-danger">Invalid user or password</p>';}
-                        elseif($loginStatus == 'dbfail')
-                            {echo '<p class="text-danger">Database connection issue</p>';}
-                        elseif($loginStatus == 'empty')
-                            {echo '<p class="text-info">Either username or password empty</p>';} 
-                        else
-                            {echo '';}
-                    }
-                ?>
-            </div><!-- column -->
-        </div><!-- row -->
-        <!-- .................................................... -->
+<!-- .................................................... --> 
+<div class="row">
+<div class="col-sm-12">
+<?php
+    if( $_GET != NULL && !empty($_GET['login']))
+    {
+        $loginStatus = $_GET['login'];
+        if($loginStatus == 'nouser')
+            {echo '<p class="text-danger">Invalid user or password</p>';}
+        elseif($loginStatus == 'dbfail')
+            {echo '<p class="text-danger">Database connection issue</p>';}
+        elseif($loginStatus == 'empty')
+            {echo '<p class="text-info">Either username or password empty</p>';} 
+        else
+            {echo '';}
+    }
+?>
+</div><!-- column -->
+</div><!-- row -->
+    
+<!-- .................................................... -->    
+<section id="theTop">
+    
+      <h2>HOME</h2>
+
+      <!-- ROW 1 -->
+      <div class="row">
+      <div class="col-sm-12">
+
+          <p>Example public page</p>
+<?php
+
+echo "PHP Check : YEP I'M GOOD";
+
+?>
+
+      </div><!-- column -->
+      </div><!-- row -->
+      <!-- END ROW 1 -->      
+          
+      <!-- ROW 2 -->
+      <div class="row margin-top-3">
+          
+      <div class="col-sm-4">
+
+          <h4>Item 1</h4>
+          <p>Some text</p>
+
+      </div><!-- column -->
+          
+      <div class="col-sm-4">
+
+          <h4>Item 2</h4>
+          <p>Some text</p>
+
+      </div><!--column-->
+          
+      <div class="col-sm-4">
+
+          <h4>Item 3</h4>
+          <p>Some text</p>
+
+      </div><!-- column-->
+          
+      </div><!-- row -->
+      <!-- END ROW 2 -->             
+
+            
+</section>      
+<!-- .................................................... -->
 
 </div> <!-- END container-->    
 </main>
