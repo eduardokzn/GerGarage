@@ -1,0 +1,1 @@
+The contents of the ajaxComments.txt file on the server have been pulled back into the page.
