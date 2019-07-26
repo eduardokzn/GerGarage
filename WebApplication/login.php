@@ -59,6 +59,7 @@
     <form class="form-registerin" action="registration.php" method="POST">
         <button class="btn btn-sm btn-mute btn-secondary btn-block btn-signin" type="submit">Register</button>
     </form>
+    //debugging
     <a href="showUserTable.php" class="forgot-password">
         debug: view user table 
     </a>

@@ -42,7 +42,6 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
     echo "<header>";
     include (VIEW_PATH . "/private/costumer/nav-costumer.php"); 
     echo "</header>";
-    
 ?>
         
 <!-- MAIN CONTENT ------------------------------------------>
@@ -58,18 +57,21 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
         <!--<label for="type">Vehicle Type:</label>-->
         <select 
             class="form-control" 
-            id="vhc_type" 
+            id="vhc_type"
+            name="vhc_type"
+            value="<?php echo $vhc_type;?>"
             >
-          <option>Car</option>
-          <option>Motorbike</option>
-          <option>Small Van</option>
-          <option>Small Bus</option>
+            <?php
+                include ("sqlTypeVhc.php");
+            ?>
         </select>
         <br>
 
         <select 
             class="form-control" 
             id="vhc_make"  
+            name="vhc_make"  
+            value="<?php echo $vhc_make;?>"
         >
             <?php
                 include ("sqlMake.php");
@@ -79,7 +81,9 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
 
         <select 
             class="form-control" 
-            id="vhc_engine"  
+            id="vhc_engine"
+            name="vhc_engine"  
+            value="<?php //echo $vhc_engine;?>"
         >
             <?php
                 include ("sqlEngine.php");
@@ -89,35 +93,37 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
 
         
         <input type="text"  
-               id="register_vhc"  
-               name="register_vhc"
+               id="vhc_register"  
+               name="vhc_register"
                class="form-control"
                placeholder="Register. Ex: 192D1234" 
-               value="<?php //echo $make;?>"
+               value="<?php //echo $vhc_register;?>"
                required 
         >
         <br>        
         <button class="btn btn-lg btn-mute btn-block btn-signin" type="submit">Register</button>
+        <?php $db->close();?>
     </form>
 
     <p>
+
     <!-- if there is an issue with registration, 
          return here with a registration parameter so we can show a status
     -->
     <?php
-        //$('registration').load("registration.php");
-        if( $_GET != NULL && !empty($_GET['registration']))
+        //$('vehicleAdd').load("vehicleAdd.php");
+        if( $_GET != NULL && !empty($_GET['vehicleAdd']))
         {
-            $regStatus = $_GET['registration'];
+            $regStatus = $_GET['vehicleAdd'];
 
             if($regStatus == 'exists')
-                {echo '<p>Username or email already exists</p>';}
+                {echo '<p>Register plate already exists</p>';}
             elseif($regStatus == 'dbfail')
                 {echo '<p>Database connection issue</p>';}
             //elseif($regStatus == 'empty')
             //    {echo '<p>Either mobile, email or password are empty</p>';}   
-            elseif($regStatus == 'pass')
-                {echo '<p>Password does not match</p>';}
+//            elseif($regStatus == 'pass')
+//                {echo '<p>Password does not match</p>';}
             elseif($regStatus == 'ok')
                 {echo '<p>registration was sucessful</p>';}     
             else

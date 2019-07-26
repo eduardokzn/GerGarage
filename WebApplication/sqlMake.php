@@ -14,9 +14,13 @@ if(!$db)
 else 
 { 
     $stm = "    SELECT 
-                    brand_br||' - '||model_mk mk,
-                    brand_br,
-                    model_mk 
+                    brand_br||' - '||model_mk mk
+                    ,id_br||' --- '||id_mk id
+                    ,id_br
+                    ,brand_br
+                    ,id_mk
+                    ,model_mk
+                    
                 FROM
                     make m
                 LEFT JOIN
@@ -45,11 +49,15 @@ else
     foreach($theData as $row)
     {
     //troubleshooting
-       echo ' <option> ';
+       echo ' <option value="';
+       echo $row["id_br"];
+       echo ' - ';
+       echo $row["id_mk"];
+       echo '" > ';
        echo $row["mk"];
        echo ' </option> ';
       //$user_id=$row["id_usr"];
     }
 }
-    $db->close();
+//    $db->close();
 ?>
