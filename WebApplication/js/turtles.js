@@ -71,3 +71,20 @@ function renderTime()
 	myClock.textContent = h + ":" + m + ":" + s + " " + diem;
 	setTimeout('renderTime()',1000);
 }
+
+
+
+    require([
+        "dijit/Calendar",
+        "dojo/date",
+        "dojo/domReady!"
+    ], function(Calendar, date){
+        new Calendar({
+            value: new Date(),
+            isDisabledDate: function(d){
+                var d = new Date(d); d.setHours(0, 0, 0, 0);
+                var today = new Date(); today.setHours(0, 0, 0, 0);
+                return Math.abs(date.difference(d, today, "week")) > 0;
+            }
+        }, "mycal").startup();
+    });

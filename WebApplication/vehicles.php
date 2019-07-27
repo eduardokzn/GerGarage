@@ -41,6 +41,7 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
 <?php 
     echo "<header>";
     include (VIEW_PATH . "/private/costumer/nav-costumer.php"); 
+    
     echo "</header>";
     
 ?>
@@ -86,20 +87,20 @@ include (APPLICATION_PATH . "/inc/db.inc.php");
 
 <h3>Vehicles</h3>
     
-<?php include ("vehicle.php"); ?>
+    <?php include ("vehicle.php"); ?>
 
 </div><!-- column -->
 <div class="col-sm-7">    
     
-<h3>Additional details</h3>
+<h3>Booking details</h3>
 
 <!-- AJAX -->
     
-<div id="ReviewForm">
+<div id="BookingForm">
     <!-- review data placed here following AJAX call -->
-    <p> Click 'more' to review additional information here</p>
+    <p> Click 'Booking' to make a booking </p>
 </div>
-    
+   
 <div id="ReviewPanel_AJAXResponseErrorMessage"></div>
 <div id="ReviewPanel_AJAXResponseErrorVariables"></div>
     

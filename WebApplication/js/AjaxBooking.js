@@ -56,7 +56,7 @@ function loadItem(anID)
     xmlhttp.onreadystatechange=processXHRreturn;
     
     //GET THE PAGE
-  	var url="bookingVehicle.php";
+  	var url="bookingList.php";
     
 	url=url+"?iid="+anID.replace('#','');
 //	url=url+"&r="+Math.random();
@@ -73,7 +73,7 @@ function loadItem(anID)
 	{
 		if (xmlhttp.readyState===4 && xmlhttp.status===200)
 	    {
-            document.getElementById("BookingForm").innerHTML="<p>"+xmlhttp.responseText+" </p>";
+            document.getElementById("BookingList").innerHTML="<p>"+xmlhttp.responseText+" </p>";
 	   
 	    }   
 	}

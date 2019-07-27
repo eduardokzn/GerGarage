@@ -33,7 +33,7 @@ header {
 WATCH OUT: in CSS so path to images is one up - use ../img/picture  
 Ref: https://www.w3schools.com/howto/howto_css_full_page.asp
 Ref: https://github.com/BlackrockDigital/startbootstrap-full
-[data-url-id=‚Äùintro‚Äù] .page-desc
+[data-url-id=‚Ä?intro‚Ä?] .page-desc
 */
 
 #intro {
@@ -129,7 +129,10 @@ ref: https://codepad.co/snippet/YPDXE33r
   }
 }
 */
-
+.btn{
+    font-weight: bold;
+    background-color: rgba(152, 162, 204, 0.9) !important; 
+}
 /* --------------------------------------------------
 first page styling
 ref: https://mdbootstrap.com/landing-page-lesson-2/
@@ -139,7 +142,7 @@ ref: https://mdbootstrap.com/landing-page-lesson-2/
   .btn-white:hover {
     background-color: white !important; }
   .btn-white:focus, .btn-white:active, .btn-white.active {
-    background-color: #d9d9d9 !important; }
+    background-color: #b1b1b1 !important; }
   .btn-white.dropdown-toggle {
     background-color: #fff !important; }
     .btn-white.dropdown-toggle:hover, .btn-white.dropdown-toggle:focus {
@@ -289,4 +292,9 @@ img
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
   background-color: #8f8f8f;
+}
+
+#mycal table.dijitCalendarContainer {
+  margin: 25px auto;
+  width: 200px;
 }

@@ -14,39 +14,43 @@ $db = new DBConnection();
             SELECT
                 *
             FROM
-                vehicle v 
+                bookings bk
             LEFT JOIN
-                make m
+                bookingType t
             LEFT JOIN
-                brand b
+                vehicle v
             LEFT JOIN
-                vehicleType t
+                status st
             LEFT JOIN
-                engine e
-            WHERE 
+                user u
+            WHERE
                 owner_vhc = ".$_SESSION["id"]."
             AND
-                type_vhc=id_vht
+                type_bk=id_bt
             AND
-                make_vhc=id_mk
+                vehicle_bk=id_vhc
             AND
-                brand_mk=id_br
-            AND
-                engine_vhc=id_eng
+                staff_bk=id_usr
             ;";
-//echo $query;
+echo $query;
 if(!$db) 
    {
       echo $db->lastErrorMsg();
    }
-     else 
+else
    {
-       $results = $db->query($query);
+        try
+        {
+            $results = $db->exec($query);
+        }
+        catch (PDOException $e)
+        {
+            die($e->getMessage());
+        }
         
-       if ( $results->numColumns() < 1 )
+       if ( count($results) < 1 )
        {
-            echo "There is no vehicle registered.<br>"
-               . "Please, click on New Vehicle on the top.";
+            echo "There is no bookings.<br>";
        }
        else
        {

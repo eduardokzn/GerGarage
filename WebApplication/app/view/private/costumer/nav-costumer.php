@@ -31,7 +31,7 @@
       </ul> 
         
       <ul class="nav nav-button ml-auto">
-        <li><button class="btn btn-warning" type="button" onclick="location.href='../../index.php'">Sign Out <i class="fa fa-arrow-circle-right ml-2"></i></button></li>
+        <li><button class="btn btn-warning" type="button" onclick="location.href='index.php'">Sign Out <i class="fa fa-arrow-circle-right ml-2"></i></button></li>
       </ul>
           
       </div><!-- END: menu collapse wrapper-->
