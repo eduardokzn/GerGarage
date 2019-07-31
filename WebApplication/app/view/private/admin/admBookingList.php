@@ -15,7 +15,6 @@
 
 //            if(empty($_SESSION["id"])) {$user =16;} else
             {$user =$_SESSION["id"];}
-            $vhc=$_REQUEST["iid"];
 //            $dt=$_REQUEST["bk_date"];
             
 
@@ -57,7 +56,7 @@
 //           if ($results->numColumns() <1)
            if ($nrows == 0)
            {
-//                echo "There is no bookings.<br>";
+                echo "There is no bookings.<br>";
            }
            else
            {
@@ -70,26 +69,33 @@
                         <th scope="col">Budget</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Engine</th>
+                        <th scope="col">Register</th>
                         <th scope="col"> actions </th>
                     </tr>
                     </thead>
                     <tbody>';
                foreach($theData as $row)
                {
-                    echo '<tr><td>'
-                      .$row['description_bt']
-                      .'</td><td>'
-                      .$row['budget_bt']
-                      .'</td><td>'
-                      .$row['day_bk']
-                      .'</td><td>'
-                      .$row['ref_sts']
-                      .'</td><td class="crud">'
-                      .'<a href="'
-                      .'deleteBooking.php?iid='
-                      .$row['id_vhc']
-                      .'"><i class="fa fa-trash-o ml-2"></i></a>&nbsp;&nbsp;&nbsp;'
-                      ."</td></tr>";
+                    echo '<tr>'
+                            . '<td>'.$row['description_bt'].'</td>'
+                            . '<td>'.$row['budget_bt'].'</td>'
+                            . '<td>'.$row['day_bk'].'</td>'
+                            . '<td>'.$row['ref_sts'].'</td>'
+                            . '<td>'.$row['brand_br'].'</td>'
+                            . '<td>'.$row['model_mk'].'</td>'
+                            . '<td>'.$row['description_eng'].'</td>'
+                            . '<td>'.$row['register_vhc'].'</td>'
+                        
+                            . '<td class="crud">'
+        //                      .'<a href="cancelBooking.php?iid='.$row['id_vhc'].'">work<i class="fa ml-2"></i></a>&nbsp;&nbsp;&nbsp;'
+        //                      .'<a href="'.'updateItem.php?iid='.$row["id_vhc"].'">Update<i class="fa ml-2"></i></a>&nbsp;&nbsp;&nbsp;'
+                              .'<a class="staffReview" href=#'.$row["id_vhc"].'>Bookings<i class="fa fa-arrow-circle-right ml-2"></i></a>&nbsp;&nbsp;'
+                          //.'<p> href="'.'reviewItem.php?iid='.$row["id_vhc"].'">check</p>'
+                            ."</td>"
+                        . "</tr>";
                }
             echo '</div></div><!-- /card-container -->';
            }
@@ -99,5 +105,5 @@
        // echo json_encode($theData);
              
 //   }
-$db->close();
+//$db->close();
    

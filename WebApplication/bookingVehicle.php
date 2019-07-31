@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html lang="en">
 <?php
 
@@ -26,21 +28,21 @@ define("VIEW_PATH", APPLICATION_PATH . "/view");
 define("MODEL_PATH", APPLICATION_PATH . "/model");
 include (APPLICATION_PATH . "/inc/config.inc.php");
 include (APPLICATION_PATH . "/inc/db.inc.php");
-$KoolControlsFolder="Controls";
 
+?><head><?php include (VIEW_PATH . "/head.php"); ?></head><?php 
 // input checking
-
-if ( empty($_REQUEST['iid']) )
-{
-    echo '<p class="text-warning"> No ID was provided </p>'	;
-    exit;
-}
-else
-{
-    $iid = $db->escapeString(htmlspecialchars($_REQUEST['iid']));
-    
-    //echo '<p>iid :'.$iid.'</p>';
-}
+//declare variables
+//    if($user =null){$user =16;}else
+    {$user =$_SESSION["id"];}
+    if (empty($_REQUEST['iid']) )
+    {
+        echo '<p class="text-warning"> No ID was provided </p>'	;
+        exit;
+    }
+    else
+    {
+        $vhc=$db->escapeString(htmlspecialchars($_REQUEST['iid']));
+    }
 
 if(!$db) 
 {
@@ -49,117 +51,70 @@ if(!$db)
 } 
  else 
 { 
-    //Check if exists
-     
-    $query = "SELECT "
-            . "     * "
-            . "FROM"
-            . "     bookings "
-            . "WHERE"
-            . "     vehicle_bk='".$iid."'";
-//    echo '<br> '.$query.'<br> ';
-    echo("<script>console.log('PHP: ".$query."');</script>");
-
-    $results = $db->query($query);
-
-    $theData = array();
-         
-    while($entry = $results->fetchArray(SQLITE3_ASSOC))
-    { 
-       array_push( $theData, $entry );          
-    }
-     
-    if (count($theData) == 0)
-    {
-        // no record
-        echo '<p class="text-warning"> No bookings: No records exists to this vehicle</p>';
-        {//calendar
-        ?>
-        <div id="BookingList"></div>
-        <form>
-            <input type="date" 
-                   id="bk_date" name="bk_date" 
-                   class="claro" required autofocus> 
-            <select 
-                class="form-control" 
-                required
-                id="bk_type"
-                name="bk_type"
-                value="<?php echo $bk_type;?>"
-                >
-                <?php
-                    include ("sqlTypeBk.php");
-                ?>
-            </select>
-            <button class="btn" onclick="" type="submit">Book now</button>  
-        </form>
-        <?php
+    $query = "
+            SELECT
+                *
+            FROM
+                 bookings b
+            LEFT JOIN
+                vehicle v
+            LEFT JOIN
+                bookingType bt
+            LEFT JOIN
+                status s
+            WHERE
+                vehicle_bk=id_vhc
+            AND
+                type_bk=id_bt
+            AND 
+                status_bk=id_sts
+            AND
+                vehicle_bk='".$vhc."'
+            AND
+                owner_vhc = ".$user."
+            ;";
+   // echo '<br> '.$query.'<br> ';
+    try{
+        $results = $db->query($query);
+//        echo "vhc:There is no errors running the query.<br>";
+        if ($results->numColumns() <1)
+         {echo '<br>dbconnection failure<br>';}
+        $theData = array();
+        while($entry = $results->fetchArray(SQLITE3_ASSOC))
+        { array_push($theData, $entry );}
+            $nrows = 0;
+            while ($results->fetchArray())
+            {$nrows++;}
+//                echo 'bookingVehicle - rows: '.$nrows.'<br>';
+    //            echo 'count rows: '.count($theData).'<br>';
+//                if(count($theData) > 1){echo 'has rows<br>';}else {echo 'has no rows<br>';}
+        if ($nrows == 0)
+        {
+            // no record
+            echo '<p class="text-warning"> No bookings: No records exists to this vehicle</p>';
+            {//calendar
+                $today = date("d/m/y");
+                //echo $today;
+//           echo '<br>before bookingAddForm.php<br>';
+//            include ("bookingAddForm.php");            
+//           echo '<br>after bookingAddForm.php<br>';
+                        }
+//            echo'<div id="BookingList"></div><!-- replace by AjaxBooking.js-->';
+//            include ("bookingAddForm.php");
         }
-        $db->close();
-        exit;   
-    }
-    elseif( count($theData) != 1 ) 
-    {
-        //more than one record exists - data issue, should only be one
+        else
+        {
+           //Have record
+//           echo '<br>before bookingList.php<br>';
+            include ("bookingList.php");
+//           echo '<br>after bookingList.php<br>';
+//            include ("bookingAddForm.php");
+//
+// echo json_encode($theData); 
+        $db->close();   
         
-        echo '<p class="text-danger"> Invalid ID : Multiple records with this ID </p>'	;
-        $db->close();
-        exit;   
-    }
-    else
-    {
-       //Have one record
-        
-        echo '<div class="card card-container-fluid py-2 px-2">
-        <form>';
-
-        foreach($theData as $row)
-        {    
-            echo
-            '<div class="form-group row">
-                <label for="robotID" class="col-sm-4 col-form-label">ID</label>
-                <div class="col-sm-8">
-                <input id="robotID" readonly class="form-control" type="text" value="'
-                .$row["Robot_ID"].'">'
-                .'</div></div>'
-            .'<div class="form-group row">
-                <label for="robotName" class="col-sm-4 col-form-label">Robot Name</label>
-                <div class="col-sm-8">
-                <input id="robotName" readonly class="form-control" type="text" value="'
-                .$row["RobotName"].'">'
-                .'</div></div>'
-            .'<div class="form-group row">
-                <label for="robotDesc" class="col-sm-4 col-form-label">Description</label>
-                <div class="col-sm-8">
-                <textarea id="robotDesc" readonly class="form-control" type="text" rows="3" >'
-                .$row["RobotDescription"].'</textarea>'
-                .'</div></div>'
-            .'<div class="form-group row">
-                <label for="robotCost" class="col-sm-4 col-form-label">Robot Cost</label>
-                <div class="col-sm-8">
-                <input id="robotCost" readonly class="form-control" type="text" value="'
-                .$row["RobotCost"].'">'
-                .'</div></div>'
-           .'<div class="form-group row">
-                <label for="robotImage" class="col-sm-4 col-form-label"> Image</label>
-                <div class="col-sm-8">'
-                .'<img src="img/'.$row["RobotImage"].'" class="img-rounded img-responsive" alt="'.$row["RobotName"].'">'
-                
-                //<input id="robotImage" readonly class="form-control" type="text" value="'
-                //.$row["RobotImage"].'">'
-                
-                .'</div></div>'
-            ;
         }
-
-        echo '   
-        </form>
-        </div><!-- /card-container -->';
-        
-       // echo json_encode($theData); 
-        
-       $db->close();   
-    }
+    } catch (PDOException $e) { die($e->getMessage()); }
      
 }
 

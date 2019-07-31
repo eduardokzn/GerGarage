@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 
 <?php
-    $menuActive_index = "active"; // CHANGE
     define("MY_INC_CODE", 888);
     define("APPLICATION_PATH", "app");
     define("VIEW_PATH", APPLICATION_PATH . "/view");
     include (APPLICATION_PATH . "/inc/config.inc.php");
-$menuActive_home = "active";
+    include (APPLICATION_PATH . "/inc/db.inc.php");   
+    
+    $menuActive_home = "active";
+//    $menuActive_privatepage1 = "active";
+//    $menuActive_privatepage2 = "active";
+//    $menuActive_privatepage3 = "active";
 ?>
 
 <html lang="en">
@@ -33,10 +37,8 @@ header {
 <?php 
     
     echo '<header>';
-    include (VIEW_PATH . "/private/costumer/nav-costumer.php"); 
+    include (VIEW_PATH . "/private/admin/nav-admin.php"); 
     echo "<header>";
-    
-    include (APPLICATION_PATH . "/inc/db.inc.php");   
 ?>
         
 <!-- MAIN CONTENT ------------------------------------------>

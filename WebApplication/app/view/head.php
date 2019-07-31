@@ -24,6 +24,10 @@ integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfs
 
 <!-- javaScript used in page creation -->
 <script type="text/javascript" src="js/turtles.js"></script>
+<script type="text/javascript" src="js/AjaxCRUDStaffReview.js"></script>
 
 
 <link rel="stylesheet" href="../_static/js/dojo/../dijit/themes/claro/claro.css">
+<?php
+    date_default_timezone_set('UTC');
+?>

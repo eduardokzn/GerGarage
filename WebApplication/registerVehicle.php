@@ -3,7 +3,6 @@
     define("MY_INC_CODE", 888);
     define("APPLICATION_PATH", "app");
     define("VIEW_PATH", APPLICATION_PATH . "/view");
-
     include (APPLICATION_PATH . "/inc/config.inc.php");
     include (APPLICATION_PATH . "/inc/db.inc.php");
 

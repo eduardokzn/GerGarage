@@ -47,8 +47,8 @@ else
                     u.type_usr = t.id_tu
                 AND u.email_usr='$email' 
                 LIMIT 1;";
-echo $stm ;
-echo '<br>';
+//echo $stm ;
+//echo '<br>';
      try
      {
          $results = $db->query($stm);

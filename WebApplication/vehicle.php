@@ -6,8 +6,6 @@
 //Ref: http://php.net/manual/en/sqlite3stmt.execute.php
 //Ref: http://www.sqlitetutorial.net/sqlite-php/
 
-$db = new DBConnection();
-
 //echo $_SESSION["id"];
 
     $query = "

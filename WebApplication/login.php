@@ -37,6 +37,7 @@
     <!-- to see what the form sends out change action="showPageRequest.php" 
          rather than action="userExistsCheck.php"
     -->
+    <!--<form class="form-signin" action="showPageRequest.php" method="POST">-->
     
     <form class="form-signin" action="userExistsCheck.php" method="POST">
         <h2>Request Access</h2><br>
@@ -60,9 +61,9 @@
         <button class="btn btn-sm btn-mute btn-secondary btn-block btn-signin" type="submit">Register</button>
     </form>
     <!--//debugging-->
-    <a href="showUserTable.php" class="forgot-password">
+<!--    <a href="showUserTable.php" class="forgot-password">
         debug: view user table 
-    </a>
+    </a>-->
 </div><!-- /card-container -->
 </div> <!-- END container-->    
 </main>

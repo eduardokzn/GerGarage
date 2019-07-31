@@ -26,7 +26,7 @@
           <a class="nav-link <?php echo "$menuActive_privatepage2"; ?>" href="./vehicles.php">Vehicles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo "$menuActive_privatepage3"; ?>" href="./costumerPage3.php">Ajax Database</a>
+          <a class="nav-link <?php echo "$menuActive_privatepage3"; ?>" href="./bookingAdd.php">New Booking</a>
         </li>
       </ul> 
         

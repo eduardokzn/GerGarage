@@ -1,9 +1,9 @@
 <!-- PRIVATE MENU -->
 
     <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-danger fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
 
-      <a class="navbar-brand" href="home.php">
+      <a class="navbar-brand" href="admin.php">
         <img src="./img/DarkAlien.png" alt="logo" style="width:60px;">
       </a>
         
@@ -17,17 +17,17 @@
           
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link <?php echo "$menuActive_home"; ?>" href="home.php">Home</a>
+          <a class="nav-link <?php echo "$menuActive_home"; ?>" href="admin.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo "$menuActive_privatepage1"; ?>" href="privatePage1.php">Ajax Raw</a>
+          <a class="nav-link <?php echo "$menuActive_privatepage1"; ?>" href="admBookings.php">Bookings</a>
         </li>
-        <li class="nav-item">
+<!--        <li class="nav-item">
           <a class="nav-link <?php echo "$menuActive_privatepage2"; ?>" href="privatePage2.php">Ajax jQuery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?php echo "$menuActive_privatepage3"; ?>" href="privatePage3.php">Ajax Database</a>
-        </li>
+        </li>-->
       </ul> 
         
       <ul class="nav nav-button ml-auto">

@@ -21,4 +21,5 @@
     <script type="text/javascript" src="js/AjaxContentPullIn.js"></script>
     <script type="text/javascript" src="js/AjaxPagePullIn.js"></script>
     <script type="text/javascript" src="js/AjaxCRUD_Review.js"></script>
+    <!--<script type="text/javascript" src="js/AjaxBooking.js"></script>-->
 

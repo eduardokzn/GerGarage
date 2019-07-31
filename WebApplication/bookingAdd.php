@@ -14,7 +14,7 @@ if (!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == 1)
     header("Location:index.php");
 }
 
-$menuActive_privatepage1 = "active";
+$menuActive_privatepage3 = "active";
     define("MY_INC_CODE", 888);
     define("APPLICATION_PATH", "app");
     define("VIEW_PATH", APPLICATION_PATH . "/view");
@@ -52,55 +52,48 @@ $menuActive_privatepage1 = "active";
           
 <h2 class="text-center">Add Vehicle</h2>
     
-    <form action="registerVehicle.php" method="POST" id="registration1">
+<form action="registerBooking.php" method="POST" id="registration1">
         <!--<label for="type">Vehicle Type:</label>-->
         <select 
             class="form-control" 
-            id="vhc_type"
-            name="vhc_type"
-            value="<?php echo $vhc_type;?>"
+            required
+            id="bk_vhc"
+            name="bk_vhc"
+            selected 
             >
             <?php
-                include ("sqlTypeVhc.php");
+                include ("sqlVehicle.php");
             ?>
         </select>
         <br>
 
-        <select 
+        <input type="date" 
             class="form-control" 
-            id="vhc_make"  
-            name="vhc_make"  
-            value="<?php echo $vhc_make;?>"
+            id="bk_date" name="bk_date" 
+            required autofocus
         >
-            <?php
-                include ("sqlMake.php");
-            ?>
-        </select>
-        <br>
-
-        <select 
-            class="form-control" 
-            id="vhc_engine"
-            name="vhc_engine"  
-            value="<?php //echo $vhc_engine;?>"
-        >
-            <?php
-                include ("sqlEngine.php");
-            ?>
-        </select>
-        <br>
-
+        <br> 
         
-        <input type="text"  
-               id="vhc_register"  
-               name="vhc_register"
-               class="form-control"
-               placeholder="Register. Ex: 192D1234" 
-               value="<?php //echo $vhc_register;?>"
-               required 
+        <select 
+            class="form-control" 
+            required
+            id="bk_type"
+            name="bk_type"
+            selected 
+            >
+            <?php
+                include ("sqlTypeBk.php");
+            ?>
+        </select>
+        <br>
+
+        <input type="text" 
+            class="form-control" 
+            id="bk_note" name="bk_note"
+            placeholder="Give us some previus information here"
         >
-        <br>        
-        <button class="btn btn-lg btn-mute btn-block btn-signin" type="submit">Register</button>
+        <br>
+        <button class="btn btn-lg btn-mute btn-block btn-signin" type="submit">Book now</button>
         <?php $db->close();?>
     </form>
 
@@ -111,19 +104,15 @@ $menuActive_privatepage1 = "active";
     -->
     <?php
         //$('vehicleAdd').load("vehicleAdd.php");
-        if( $_GET != NULL && !empty($_GET['vehicleAdd']))
+        if( $_GET != NULL && !empty($_GET['bookingAdd']))
         {
-            $regStatus = $_GET['vehicleAdd'];
+            $regStatus = $_GET['bookingAdd'];
             if($regStatus == 'exists')
-                {echo '<p>Register plate already exists</p>';}
+                {echo '<p>Booking already exists</p>';}
             elseif($regStatus == 'dbfail')
                 {echo '<p>Database connection issue</p>';}
-            //elseif($regStatus == 'empty')
-            //    {echo '<p>Either mobile, email or password are empty</p>';}   
-//            elseif($regStatus == 'pass')
-//                {echo '<p>Password does not match</p>';}
             elseif($regStatus == 'ok')
-                {echo '<p>registration was sucessful</p>';}     
+                {echo '<p>Booking was sucessful</p>';}     
             else
                 {echo $regStatus;}
         }

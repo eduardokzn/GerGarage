@@ -14,7 +14,7 @@ if (!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == 1)
     header("Location:index.php");
 }
 
-$menuActive_privatepage3 = "active";
+$menuActive_privatepage2 = "active";
 define("MY_INC_CODE", 888);
 define("APPLICATION_PATH", "app");
 define("VIEW_PATH", APPLICATION_PATH . "/view");
